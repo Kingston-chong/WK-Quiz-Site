@@ -1,0 +1,10 @@
+.app-layout{
+    display: flex;
+    flex-direction: row;
+}
+
+.app-layout-content{
+    display: flex;
+    flex-direction: column;
+    margin-inline:3%;
+}

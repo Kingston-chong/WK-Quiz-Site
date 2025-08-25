@@ -1,0 +1,9 @@
+.question-bar-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.question-bar-container h1{
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

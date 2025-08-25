@@ -1,0 +1,18 @@
+.title-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.title-bar h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgba(90, 25, 202, 1);
+    width: 90%;
+    font-size: 32px;
+}
+
+.title-bar a{
+    text-decoration: none;
+    color: rgba(90, 25, 202, 1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

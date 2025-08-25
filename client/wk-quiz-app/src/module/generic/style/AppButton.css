@@ -1,0 +1,10 @@
+.btn-primary{
+    background-color: rgba(90, 25, 202, 1) !important;
+    text-transform: none !important;
+}
+
+.btn-exit{
+    background-color: rgb(255, 0, 0) !important;
+    text-transform: none !important;
+    color: white;
+}

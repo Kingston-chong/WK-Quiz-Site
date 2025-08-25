@@ -1,0 +1,12 @@
+.inquiz-page{
+    display: flex;
+    flex-direction: column;
+    margin-block: 50px;
+    margin-inline: 5%;
+}
+
+.question-container h1{
+    margin-top: 100px;
+    font-size: 28px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

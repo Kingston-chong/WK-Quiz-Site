@@ -1,0 +1,30 @@
+.sidebar-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(23, 0, 62, 1);
+    width: 20%;
+    min-height: 100vh;
+}
+
+.sidebar-nav{ 
+    margin-top: 30%;
+    padding-inline: 5%;
+}
+
+.sidebar-nav li{
+    list-style: none;
+    padding-inline: 5%;
+    padding-block: 20px;
+}
+
+.sidebar-nav a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.sidebar-nav li:hover{
+    background-color: rgb(112, 0, 172);
+    border-radius: 10px;
+}

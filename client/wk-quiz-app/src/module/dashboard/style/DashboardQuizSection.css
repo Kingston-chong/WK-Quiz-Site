@@ -1,0 +1,15 @@
+.dashboard-quiz-section{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 3px rgb(201, 201, 201);
+    border-radius: 30px;
+    padding-inline: 3%;
+    padding-block: 30px;
+}
+
+.dashboard-quiz-container{
+    display: flex;
+    flex-direction: row;
+    column-gap: 3%;
+    margin-block: 50px;
+}

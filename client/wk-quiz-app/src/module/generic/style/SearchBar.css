@@ -1,0 +1,8 @@
+#search-bar{
+    width:600px;
+}
+
+.search-container svg{
+    padding-left: 10px;
+    padding-right: 30px;
+}

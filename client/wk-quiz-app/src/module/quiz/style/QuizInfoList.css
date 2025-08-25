@@ -1,0 +1,9 @@
+.quiz-info-list{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.quiz-info-list-item span{
+    text-align: right;
+}
