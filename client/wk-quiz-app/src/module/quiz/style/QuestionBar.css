@@ -1,9 +1,22 @@
 .question-bar-container{
     display: flex;
     flex-direction: row;
+    column-gap: 5%;
 }
 
 .question-bar-container h1{
     font-size: 24px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.question-bar-pts{
+    background-color: rgba(251, 109, 58, 1);
+    color: white;
+    border-radius: 20px;
+    align-self: center;
+    padding-block: 10px;
+    padding-inline: 3%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
 }

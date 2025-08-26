@@ -13,11 +13,25 @@ function QuestionOpts(props){
             if(selectedAns==correct){
                 setResult(true);
                 document.getElementById(`question-opts-${selectedAns}`).setAttribute('id','opt-correct');
+                props.markCorr();
             }
             else{
                 setResult(false);
                 document.getElementById(`question-opts-${selectedAns}`).setAttribute('id','opt-false');
+                document.getElementById(`question-opts-${correct}`).setAttribute('id','opt-correct'); 
             }
+            
+            const timer = setTimeout(()=>{
+                props.nxQues();
+                
+                document.getElementById('opt-false').setAttribute('id',`question-opts-${selectedAns}`);
+                document.getElementById('opt-correct').setAttribute('id',`question-opts-${correct}`);
+
+                setSelectedAns(null);
+                setResult(null); 
+            },2000)
+
+            return ()=> clearTimeout(timer);
         }
     },[selectedAns])
 

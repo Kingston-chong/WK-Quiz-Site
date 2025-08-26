@@ -8,14 +8,16 @@ const Questions = [
                 opts:[
                     'String Ray','Mermaid','Salt Fish','Your Lao Zi'
                 ],
-                correct:3
+                correct:3,
+                pts : 100,
             },
             {
                 title : 'AE86 or Mercedes?',
                 opts:[
                     'AE86','Mercedes','Both','Both Not'
                 ],
-                correct:0
+                correct:0,
+                pts:100, 
             }
         ]
     }
