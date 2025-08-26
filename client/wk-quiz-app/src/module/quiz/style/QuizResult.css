@@ -1,0 +1,67 @@
+.quiz-result-page{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.quiz-result-page a{
+   margin-inline: 30%;
+}
+
+.quiz-result-title{
+    margin-top: 50px;
+}
+
+.quiz-result-title h1{
+    text-align: center;
+    color: rgba(90, 25, 202, 1);
+    margin: 0px;
+}
+
+.quiz-result-title hr{
+    width: 5%;
+    height: 10px;
+    background-color: rgba(251, 109, 58, 1);
+    border-radius: 20px;
+    border: none;
+    margin-top: 5px;
+}
+
+.quiz-result-top-container{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    box-shadow: 0px 0px 3px rgb(219, 219, 219);
+    border-radius: 30px;
+    padding-block: 30px;
+    padding-inline: 3%;
+}
+
+.quiz-result-top-container h1{
+    width: 40%;
+}
+
+.quiz-result-top{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-items: center;
+    
+}
+
+.quiz-result-top h1{
+    color: rgb(82, 82, 82);
+    text-align: center;
+}
+
+.quiz-result-top p{
+    font-weight: bold;
+}
+
+#quiz-result-pass{
+    color: rgb(17, 255, 0);
+}
+
+#quiz-result-fail{
+    color: rgb(255, 0, 0);
+}
