@@ -17,8 +17,6 @@ function InQuiz(){
     const [currNo,setCurrNo] = useState(1);
     const [currQuestion,setCurrQuestion] = useState(questionData[currNo-1]);
     const navigate = useNavigate();
-
-    const [resultData,setResultData] = useState(null);
     const [totalCorr,setTotalCorr] = useState(0);
     const [totalScore,setTotalScore] = useState(0);
 
@@ -26,25 +24,24 @@ function InQuiz(){
 
     useEffect(()=>{
         
-        if(currNo==questionData.length+1){
-            
-            setResultData(
-                {
-                    title : quizData.title,
-                    passing : quizData.passing,
-                    correct : totalCorr,
-                    wrong : questionData.length - totalCorr,
-                    total : questionData.length,
-                    totalScore : totalScore,
-                }
-            );
-            localStorage.setItem(`result/1?token=${token}`,JSON.stringify(resultData));
+        if(currNo ==questionData.length+1){
+            const result = {
+                title : quizData.title,
+                passing : quizData.passing,
+                correct : totalCorr,
+                wrong : questionData.length - totalCorr,
+                total : questionData.length,
+                totalScore : totalScore,
+            }; 
+
+            localStorage.setItem(`result/1?token=${token}`,JSON.stringify(result));
+
             navigate(`../../result/1?token=${token}`);
-        }
-        else{
+        }   
+        else if(currNo>0&&currNo<questionData.length){
             setCurrQuestion(questionData[currNo-1]);    
         }
-    });
+    },[currNo,questionData,quizData,totalCorr,totalScore,token]);
 
     return(
         <>
