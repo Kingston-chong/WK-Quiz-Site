@@ -1,9 +1,8 @@
 .quiz-card-container{
-    background-image: url('../../../assets/quiz/q_1.png');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
-    width: 30%;
+    width: 40%;
     height: 250px;
     text-decoration: none;
 }
@@ -63,7 +62,7 @@
 }
 
 .quiz-card-container h1{
-    font-size: 20px;
+    font-size: 16px;
     color: white;
     background-color: rgba(60, 17, 134, 0.3);
     backdrop-filter: blur(10px);

@@ -13,7 +13,7 @@ function SideBar(){
                         <Link to='/dashboard'>Dashboard</Link>
                     </li>
                     <li>
-                        <Link>Quiz</Link>
+                        <Link to='/quiz'>Quiz</Link>
                     </li>
                     <li>
                         <Link>Achievement</Link>

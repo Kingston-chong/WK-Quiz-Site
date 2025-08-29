@@ -12,10 +12,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
-#opt-correct{
+.opt-correct{
     background-color: rgb(0, 239, 0) !important;
 }
 
-#opt-false{
+.opt-false{
     background-color: rgb(255, 0, 0) !important;
 }

@@ -6,20 +6,44 @@ function QuestionOpts(props){
 
     const [selectedAns,setSelectedAns] = useState(null);
     const correct = props.correct;
-    const [result,setResult] = useState(null);
+    const [showResult,setShowResult] = useState(false);
     
     useEffect(()=>{
+
         if(selectedAns!=null){
-            if(selectedAns==correct){
-                setResult(true);
-                document.getElementById(`question-opts-${selectedAns}`).setAttribute('id','opt-correct');
+
+            const isCorrect = selectedAns === correct;
+
+            if(isCorrect){
+                props.markCorr();
             }
-            else{
-                setResult(false);
-                document.getElementById(`question-opts-${selectedAns}`).setAttribute('id','opt-false');
-            }
+            
+            setShowResult(true);
+    
+            const timer = setTimeout(()=>{
+                props.nxQues();
+                setSelectedAns(null);
+                setShowResult(false);
+            },2000)
+
+            return ()=> clearTimeout(timer);
         }
     },[selectedAns])
+
+    const getOptClass=(index)=>{
+        if (!showResult){
+            return "question-opts-item";
+        } 
+
+        if (index === correct) {
+            return "opt-correct";
+        }
+
+        if (index === selectedAns && index !== correct){
+            return "opt-false";
+        } 
+        return "question-opts-item";
+    }
 
     return(
         <>
@@ -27,11 +51,11 @@ function QuestionOpts(props){
             <div className="question-opts-list">
                 {props.data.map((e,index)=>(
                     <Button 
-                        id={`question-opts-${index}`}
-                        className="question-opts-item"
+                    
+                        className={getOptClass(index)}
                         index={index}
                         key={index}
-                        variant="Contained"
+                        variant="contained"
                         onClick={()=>{
                             setSelectedAns(index);
                         }}

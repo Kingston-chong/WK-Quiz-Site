@@ -5,8 +5,6 @@ import QuizStartButton from '../components/QuizStartButton';
 import { useParams } from 'react-router-dom';
 import Quiz from '../data/Quiz';
 
-
-
 function QuizDetails(){
     const {id} = useParams();
     const quizData = Quiz[id-1];
@@ -16,10 +14,15 @@ function QuizDetails(){
             <div className="quiz-details-page">
                 <div className="quiz-details-section">
                     <div className="quiz-details-info">
-                        <img src={placeholder}></img>
+                        <img src={quizData.imgUrl??placeholder}></img>
 
                         <div className='quiz-info-list-container'>
-                            <QuizInfoList/>
+                            <QuizInfoList
+                                createDate = {quizData.create_date}
+                                duration = {quizData.duration}
+                                attempt = {0}
+                                passing = {quizData.passing}
+                            />
                             <QuizStartButton text='Start Quiz' id={id}/>
                         </div>
                         
