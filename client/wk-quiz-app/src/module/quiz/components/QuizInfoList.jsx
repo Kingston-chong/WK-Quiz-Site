@@ -25,22 +25,22 @@ function QuizInfoList(props){
         <>
             <List className='quiz-info-list'>
                 <QuizInfoListItem 
-                    text='12-01-2025'
+                    text={props.createDate}
                     icon ={<CalendarMonthIcon/>}
                 />
 
                 <QuizInfoListItem 
-                    text='15 Mins'
+                    text={`${props.duration} mins`}
                     icon ={<TimerIcon/>}
                 />
 
                 <QuizInfoListItem 
-                    text='0 Times'
+                    text={`${props.attempt} Times`}
                     icon ={<ReplayIcon/>}
                 />
 
                 <QuizInfoListItem 
-                    text='100 Pts'
+                    text={`${props.passing} Pts`}
                     icon ={<TrackChangesIcon/>}
                 />
             </List>

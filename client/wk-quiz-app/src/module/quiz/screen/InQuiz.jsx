@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Quiz from "../data/Quiz";
 import Questions from "../data/Questions";
 import QuestionBar from "../components/QuestionBar";
@@ -12,7 +12,17 @@ function InQuiz(){
     const {id} = useParams();
     const quizData = Quiz[id-1];
     const questions = Questions[id-1];
-    const questionData = questions.data;
+
+    const questionData = useMemo(() => {
+        const arr = [...questions.data];
+        let currIndex = arr.length;
+        while (currIndex !== 0) {
+            const randomIndex = Math.floor(Math.random() * currIndex);
+            currIndex--;
+            [arr[currIndex], arr[randomIndex]] = [arr[randomIndex], arr[currIndex]];
+        }
+        return arr;
+    }, [questions]);
 
     const [currNo,setCurrNo] = useState(1);
     const [currQuestion,setCurrQuestion] = useState(questionData[currNo-1]);
@@ -20,11 +30,12 @@ function InQuiz(){
     const [totalCorr,setTotalCorr] = useState(0);
     const [totalScore,setTotalScore] = useState(0);
 
-    const token = '1'; //hardcode token for testing only, should random generate
+    const token = crypto.randomUUID();
 
     useEffect(()=>{
-        
+    
         if(currNo ==questionData.length+1){
+            
             const result = {
                 title : quizData.title,
                 passing : quizData.passing,
@@ -34,13 +45,14 @@ function InQuiz(){
                 totalScore : totalScore,
             }; 
 
-            localStorage.setItem(`result/1?token=${token}`,JSON.stringify(result));
-
-            navigate(`../../result/1?token=${token}`);
+            localStorage.setItem(`result/${quizData.id}?token=${token}`,JSON.stringify(result));
+            navigate(`../../result/${quizData.id}?token=${token}`);
         }   
-        else if(currNo>0&&currNo<questionData.length){
-            setCurrQuestion(questionData[currNo-1]);    
+        else if(currNo>0&&currNo<=questionData.length){
+            setCurrQuestion(questionData[currNo-1]); 
+   
         }
+
     },[currNo,questionData,quizData,totalCorr,totalScore,token]);
 
     return(
@@ -62,7 +74,6 @@ function InQuiz(){
                     <QuestionOpts 
                         data={currQuestion.opts} 
                         correct={currQuestion.correct}
-                        
                         nxQues={()=>{
                             setCurrNo(currNo+1);
                         }}
