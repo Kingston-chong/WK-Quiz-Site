@@ -54,7 +54,7 @@ function QuizResult(){
                 <AppButton 
                     type='primary' 
                     title='Back To Dashboard' 
-                    url='../../dashboard'
+                    url='../../WK-Quiz-Site/dashboard'
                 />
 
             </div>

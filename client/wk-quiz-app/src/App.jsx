@@ -13,14 +13,14 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Layout/>}>
+          <Route path='/WK-Quiz-Site/' element={<Layout/>}>
             <Route index path='dashboard' element={<Dashboard/>}/>
             <Route path='QuizDetails/:id' element={<QuizDetails/>}/>
             <Route path='Result/:id' element={<QuizResult/>}/>
             <Route path='Quiz' element={<QuizMain/>}/>
           </Route>
 
-          <Route path='/quiz' element={<QuizLayout/>}>
+          <Route path='/WK-Quiz-Site/quiz' element={<QuizLayout/>}>
             <Route index path='InQuiz/:id' element={<InQuiz/>}/>
           </Route>
         </Routes>

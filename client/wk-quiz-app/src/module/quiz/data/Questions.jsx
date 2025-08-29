@@ -152,49 +152,49 @@ const Questions = [
                 opts: ['Kuala Lumpur', 'Putrajaya', 'Shah Alam', 'George Town'],
                 correct: 0,
                 pts: 100,
+            },
+            {
+                title: 'Which Malaysian island is known as the "Pearl of the Orient"?',
+                opts: ['Langkawi', 'Penang', 'Tioman', 'Redang'],
+                correct: 1,
+                pts: 100,
+            },
+            {
+                title: 'What is the currency of Malaysia?',
+                opts: ['Ringgit', 'Dollar', 'Baht', 'Rupiah'],
+                correct: 0,
+                pts: 100,
+            },
+            {
+                title: 'Which mountain is the highest in Malaysia?',
+                opts: ['Mount Tahan', 'Mount Kinabalu', 'Mount Murud', 'Mount Korbu'],
+                correct: 1,
+                pts: 100,
+            },
+            {
+                title: 'Which Malaysian state is known as the "Land Below the Wind"?',
+                opts: ['Sabah', 'Sarawak', 'Kelantan', 'Terengganu'],
+                correct: 0,
+                pts: 100,
+            },
+            {
+                title: 'What is Malaysia’s national language?',
+                opts: ['Mandarin', 'English', 'Bahasa Malaysia', 'Tamil'],
+                correct: 2,
+                pts: 100,
+            },
+            {
+                title: 'Which Malaysian festival is also known as the Festival of Lights?',
+                opts: ['Hari Raya Aidilfitri', 'Deepavali', 'Chinese New Year', 'Gawai'],
+                correct: 1,
+                pts: 100,
+            },
+            {
+                title: 'Which strait separates Peninsular Malaysia and the island of Sumatra?',
+                opts: ['Strait of Hormuz', 'Strait of Gibraltar', 'Strait of Malacca', 'Lombok Strait'],
+                correct: 2,
+                pts: 100,
             }
-            // {
-            //     title: 'Which Malaysian island is known as the "Pearl of the Orient"?',
-            //     opts: ['Langkawi', 'Penang', 'Tioman', 'Redang'],
-            //     correct: 1,
-            //     pts: 100,
-            // },
-            // {
-            //     title: 'What is the currency of Malaysia?',
-            //     opts: ['Ringgit', 'Dollar', 'Baht', 'Rupiah'],
-            //     correct: 0,
-            //     pts: 100,
-            // },
-            // {
-            //     title: 'Which mountain is the highest in Malaysia?',
-            //     opts: ['Mount Tahan', 'Mount Kinabalu', 'Mount Murud', 'Mount Korbu'],
-            //     correct: 1,
-            //     pts: 100,
-            // },
-            // {
-            //     title: 'Which Malaysian state is known as the "Land Below the Wind"?',
-            //     opts: ['Sabah', 'Sarawak', 'Kelantan', 'Terengganu'],
-            //     correct: 0,
-            //     pts: 100,
-            // },
-            // {
-            //     title: 'What is Malaysia’s national language?',
-            //     opts: ['Mandarin', 'English', 'Bahasa Malaysia', 'Tamil'],
-            //     correct: 2,
-            //     pts: 100,
-            // },
-            // {
-            //     title: 'Which Malaysian festival is also known as the Festival of Lights?',
-            //     opts: ['Hari Raya Aidilfitri', 'Deepavali', 'Chinese New Year', 'Gawai'],
-            //     correct: 1,
-            //     pts: 100,
-            // },
-            // {
-            //     title: 'Which strait separates Peninsular Malaysia and the island of Sumatra?',
-            //     opts: ['Strait of Hormuz', 'Strait of Gibraltar', 'Strait of Malacca', 'Lombok Strait'],
-            //     correct: 2,
-            //     pts: 100,
-            // }
         ]
     }
         

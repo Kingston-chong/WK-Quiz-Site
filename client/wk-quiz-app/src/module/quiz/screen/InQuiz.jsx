@@ -46,7 +46,7 @@ function InQuiz(){
             }; 
 
             localStorage.setItem(`result/${quizData.id}?token=${token}`,JSON.stringify(result));
-            navigate(`../../result/${quizData.id}?token=${token}`);
+            navigate(`../../WK-Quiz-Site/result/${quizData.id}?token=${token}`);
         }   
         else if(currNo>0&&currNo<=questionData.length){
             setCurrQuestion(questionData[currNo-1]); 
