@@ -14,7 +14,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/WK-Quiz-Site/' element={<Layout/>}>
-            <Route index path='dashboard' element={<Dashboard/>}/>
+            <Route index element={<Dashboard/>}/>
+            <Route path='dashboard' element={<Dashboard/>}/>
             <Route path='QuizDetails/:id' element={<QuizDetails/>}/>
             <Route path='Result/:id' element={<QuizResult/>}/>
             <Route path='Quiz' element={<QuizMain/>}/>

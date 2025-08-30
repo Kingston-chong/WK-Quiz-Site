@@ -10,10 +10,10 @@ function SideBar(){
                 
                 <ul className="sidebar-nav">
                     <li>
-                        <Link to='dashboard'>Dashboard</Link>
+                        <Link to='/WK-Quiz-Site/dashboard/'>Dashboard</Link>
                     </li>
                     <li>
-                        <Link to='quiz'>Quiz</Link>
+                        <Link to='/WK-Quiz-Site/quiz/'>Quiz</Link>
                     </li>
                     <li>
                         <Link>Achievement</Link>
