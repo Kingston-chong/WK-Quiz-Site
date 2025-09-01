@@ -6,6 +6,7 @@ import QuestionBar from "../components/QuestionBar";
 import QuestionOpts from "../components/QuestionOpts";
 import '../style/InQuiz.css';
 import AppButton from "../../generic/components/AppButton";
+import QuizStatusPanel from "../components/QuizStatusPanel";
 
 function InQuiz(){
 
@@ -28,6 +29,7 @@ function InQuiz(){
     const [currQuestion,setCurrQuestion] = useState(questionData[currNo-1]);
     const navigate = useNavigate();
     const [totalCorr,setTotalCorr] = useState(0);
+    const [totalWrong,setTotalWrong] = useState(0);
     const [totalScore,setTotalScore] = useState(0);
 
     const token = crypto.randomUUID();
@@ -49,8 +51,8 @@ function InQuiz(){
             navigate(`../../WK-Quiz-Site/result/${quizData.id}?token=${token}`);
         }   
         else if(currNo>0&&currNo<=questionData.length){
+            
             setCurrQuestion(questionData[currNo-1]); 
-   
         }
 
     },[currNo,questionData,quizData,totalCorr,totalScore,token]);
@@ -81,8 +83,17 @@ function InQuiz(){
                             setTotalCorr(totalCorr+1);
                             setTotalScore(totalScore+currQuestion.pts);
                         }}
+                        markWrong={()=>{
+                            setTotalWrong(totalWrong+1);
+                        }}
                    />
                 </div>
+
+                <QuizStatusPanel 
+                    score = {totalScore}
+                    correct = {totalCorr}
+                    wrong = {totalWrong}
+                />
             </div>
         </>
     )

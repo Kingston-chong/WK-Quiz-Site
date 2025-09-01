@@ -1,0 +1,13 @@
+.quiz-status-panel{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10%;
+    align-self: center;
+    margin-top: 100px !important;
+}
+
+.quiz-status-panel li{
+    background-color: rgb(50, 0, 98);
+    border-radius: 50px;
+    
+}

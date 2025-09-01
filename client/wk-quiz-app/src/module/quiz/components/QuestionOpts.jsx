@@ -17,6 +17,10 @@ function QuestionOpts(props){
             if(isCorrect){
                 props.markCorr();
             }
+
+            if(!isCorrect){
+                props.markWrong();
+            }
             
             setShowResult(true);
     
