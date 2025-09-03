@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import '../style/QuizTimer.css'
 
-function QuizTimer(){
+function QuizTimer(props){
 
     const [second,setSecond] = useState(0);
     const [min,setMin] = useState(0);
@@ -23,6 +23,8 @@ function QuizTimer(){
             if(second>=10){
                 filler = '';
             }
+
+            props.returnTime();
 
             setTime(`${min}:${filler}${second}`);
         },1000);
