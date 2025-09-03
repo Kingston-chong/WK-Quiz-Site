@@ -1,15 +1,22 @@
 .question-opts-list{
     display: flex;
-    flex-direction: column;
-    margin-inline: 30%;
+    flex-wrap: wrap;
+    gap: 20px 3%;
     margin-top: 100px;
-    row-gap: 30px;
 }
 
-.question-opts-item{
+.question-opts-item,.opt-correct,.opt-false{
+    flex: 1 1 calc(40%);
+    box-sizing: border-box;
     background-color: rgba(251, 109, 58, 1) !important;
-    font-weight: bold !important;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    text-align: justify !important;
+    text-transform: none !important;
+    font-size: 20px !important;
+}
+
+.Mui-disabled{
+    color: white !important;
 }
 
 .opt-correct{

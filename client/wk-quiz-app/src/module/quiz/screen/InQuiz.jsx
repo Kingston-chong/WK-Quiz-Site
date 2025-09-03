@@ -2,11 +2,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import Quiz from "../data/Quiz";
 import Questions from "../data/Questions";
-import QuestionBar from "../components/QuestionBar";
 import QuestionOpts from "../components/QuestionOpts";
-import '../style/InQuiz.css';
-import AppButton from "../../generic/components/AppButton";
 import QuizStatusPanel from "../components/QuizStatusPanel";
+import QuizHeaderPanel from "../components/QuizHeaderPanel";
+import '../style/InQuiz.css';
 
 function InQuiz(){
 
@@ -31,6 +30,7 @@ function InQuiz(){
     const [totalCorr,setTotalCorr] = useState(0);
     const [totalWrong,setTotalWrong] = useState(0);
     const [totalScore,setTotalScore] = useState(0);
+    const [timeUsed,setTimeUsed] = useState(0);
 
     const token = crypto.randomUUID();
 
@@ -45,6 +45,7 @@ function InQuiz(){
                 wrong : questionData.length - totalCorr,
                 total : questionData.length,
                 totalScore : totalScore,
+                timeUsed : timeUsed
             }; 
 
             localStorage.setItem(`result/${quizData.id}?token=${token}`,JSON.stringify(result));
@@ -61,18 +62,26 @@ function InQuiz(){
         <>
             <div className="inquiz-page">
 
-                <div className="inquiz-panel">
-                    <AppButton className='inquiz-page-exit' title='Exit' type='exit' url='../../dashboard'/>
-                </div>
-                
-                <QuestionBar 
+                <QuizHeaderPanel 
                     questionNo = {currNo}
+                    title = {quizData.title}
                     total = {questionData.length}
                     pts = {currQuestion.pts}
+                    returnTime = {()=>{
+                        setTimeUsed(timeUsed+1);
+                        console.log(timeUsed);
+                    }}
                 />
 
                 <div className="question-container">
                     <h1>{currQuestion.title}</h1>
+                    
+                    {
+                        currQuestion.nonSelectOpts&&currQuestion.nonSelectOpts.map((e)=>(
+                            <p>{e}</p>
+                        ))
+                    }
+
                     <QuestionOpts 
                         data={currQuestion.opts} 
                         correct={currQuestion.correct}

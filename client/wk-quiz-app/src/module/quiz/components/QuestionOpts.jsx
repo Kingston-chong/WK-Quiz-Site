@@ -28,7 +28,7 @@ function QuestionOpts(props){
                 props.nxQues();
                 setSelectedAns(null);
                 setShowResult(false);
-            },2000)
+            },1000)
 
             return ()=> clearTimeout(timer);
         }
@@ -55,7 +55,7 @@ function QuestionOpts(props){
             <div className="question-opts-list">
                 {props.data.map((e,index)=>(
                     <Button 
-                    
+                        disabled = {showResult}
                         className={getOptClass(index)}
                         index={index}
                         key={index}
