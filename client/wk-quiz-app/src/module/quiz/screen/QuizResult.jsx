@@ -2,6 +2,7 @@ import { useLocation, useParams } from "react-router-dom";
 import AppButton from "../../generic/components/AppButton";
 import QuizResultPanel from "../components/QuizResultPanel";
 import '../style/QuizResult.css'; 
+import AccuracyCircularPercentage from "../components/AccuracyCircularPercentage";
 
 
 function QuizResult(){
@@ -16,6 +17,12 @@ function QuizResult(){
 
     const accuracy = ((resultData.correct / resultData.total)*100).toFixed(2); 
     const isPassed = resultData.totalScore >= resultData.passing ? true: false;
+
+    var filler = '0';
+    if(resultData.timeUsed%60>=10){
+        filler = '';
+    }
+    const timeUsed = `${(resultData.timeUsed/60).toFixed(0)}:${filler}${(resultData.timeUsed%60)}`;
     
     return(
         <>  
@@ -29,26 +36,16 @@ function QuizResult(){
                 <div className="quiz-result-top-container">
                     <h1>{resultData.title}</h1>
                     <div className="quiz-result-top">
-                        <h1>{accuracy} %</h1>
-                        {(()=>{
-                            if(isPassed){
-                                return (
-                                    <p id="quiz-result-pass">Pass</p>
-                                );
-                            }else{
-                                return (
-                                    <p id="quiz-result-fail">Fail</p>
-                                );
-                            }
-                        })()}
-
+                        <AccuracyCircularPercentage percentage = {accuracy} isPassed={isPassed}/>
                     </div>
+                    
                 </div>
 
                 <QuizResultPanel 
                     correct = {resultData.correct}
                     wrong = {resultData.wrong}
                     score = {resultData.totalScore}
+                    timeUsed = {timeUsed}
                 />
 
                 <AppButton 

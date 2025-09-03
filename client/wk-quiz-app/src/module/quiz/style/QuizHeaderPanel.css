@@ -1,0 +1,37 @@
+.quiz-header-panel{
+    display: flex;
+    flex-direction: row;
+    column-gap: 1%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(15, 0, 60);
+    align-items: center ;
+    padding-inline: 2%;
+}
+
+.quiz-header-panel h1{
+    font-size: 24px;
+    width: 60%;
+}
+
+.question-pts{
+    background-color: rgba(251, 109, 58, 1);
+    color: white;
+    border-radius: 20px;
+    align-self: center;
+    padding-block: 10px;
+    padding-inline: 3%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.quiz-header-ques{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgb(188, 188, 188);
+    width: 10%;
+    text-align: center;
+}

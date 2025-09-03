@@ -1,11 +1,12 @@
 .quiz-result-page{
     display: flex;
     flex-direction: column;
-    background-color: white;
+    
 }
 
 .quiz-result-page a{
    margin-inline: 30%;
+   margin-top: 100px;
 }
 
 .quiz-result-title{
@@ -46,22 +47,4 @@
     flex-direction: column;
     width: 60%;
     align-items: center;
-    
-}
-
-.quiz-result-top h1{
-    color: rgb(82, 82, 82);
-    text-align: center;
-}
-
-.quiz-result-top p{
-    font-weight: bold;
-}
-
-#quiz-result-pass{
-    color: rgb(17, 255, 0);
-}
-
-#quiz-result-fail{
-    color: rgb(255, 0, 0);
 }

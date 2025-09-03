@@ -1,0 +1,13 @@
+.quiz-timer-container{
+    align-self: center;
+    justify-content: right;
+    text-align: right;
+}
+
+.quiz-timer-container h5{
+    background-color: rgb(0, 145, 255);
+    border-radius: 10px;
+    padding-inline: 30px;
+    padding-block: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

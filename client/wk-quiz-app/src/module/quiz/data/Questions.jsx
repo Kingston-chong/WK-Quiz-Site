@@ -1,29 +1,7 @@
-import { data } from "react-router-dom";
 
 const Questions = [
     {
-        id:1,
-        data:[
-            {
-                title : 'Who Is Morii Kong ?',
-                opts:[
-                    'String Ray','Mermaid','Salt Fish','Your Lao Zi'
-                ],
-                correct:3,
-                pts : 100,
-            },
-            {
-                title : 'AE86 or Mercedes?',
-                opts:[
-                    'AE86','Mercedes','Both','Both Not'
-                ],
-                correct:0,
-                pts:100, 
-            }
-        ]
-    },
-    {
-        id: 2,
+        id: 1,
         data: [
             {
                 title: "Who is the founder of Microsoft?",
@@ -133,7 +111,7 @@ const Questions = [
         ],
     },
     {
-        id:3,
+        id:2,
         data:[
             {
                 title: 'What is the official flower of Malaysia?',
@@ -195,6 +173,51 @@ const Questions = [
                 correct: 2,
                 pts: 100,
             }
+        ]
+    },
+    {
+        id:3,
+        data:[
+            {
+                title: 'Kesan apabila katod digunakan sebagai elektrod aktif adalah seperti berikut KECUALI: -',
+                opts: [
+                    'Hidrogen dilepaskan meningkatkan daya hidup tisu.', 
+                    'Mengurangkan kekonduksian dan kegembiraan saraf.',
+                    'Menghasilkan vasodilatasi dengan hiperemia dan eritema.',
+                    'Alkali, natrium hidroksida, akan membersihkan sebum dan melembutkan kulit. Ini akan memberi kesan pembersihan yang mendalam. la juga akan memecah keratin di lapisan dangkal kulit yang membantu penyahtoksin. '
+                ],
+                correct: 1,
+                pts: 100,
+            },
+            {
+                title:"lontophoresis menggunakan arus galvanik _______ dan prinsip \"seperti cas tolak\" ", 
+                opts:[
+                    "Terus",
+                    "Tidak langsung" ,
+                    "Arah", 
+                    "Melintang" 
+                ],
+                correct:0,
+                pts:100,
+            }, 
+            {
+                title:"Antara berikut, yang manakah penampilan yang profesional?", 
+                nonSelectOpts:[
+                    "I. Solekkan yang tebal.",
+                    "II. Rambut di sanggul dan kemas." ,
+                    "III. Memakai wangian yang menyenangkan." ,
+                    "IV. Pakaian yang kemas beruniform lengkap." ,
+                ],
+                opts:[
+                    "I, II dah III",
+                    "I, II dan IV ",
+                    "I, III dan IV" ,
+                    "II, III dan IV"  
+                ],
+                correct:0,
+                pts:100,
+            }, 
+
         ]
     }
         
