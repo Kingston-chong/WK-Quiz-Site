@@ -4,6 +4,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import TimerIcon from '@mui/icons-material/Timer';
 import ReplayIcon from '@mui/icons-material/Replay';
 import TrackChangesIcon from '@mui/icons-material/TrackChanges';
+import PersonIcon from '@mui/icons-material/Person';
 
 function QuizInfoListItem(props){
     return(
@@ -42,6 +43,11 @@ function QuizInfoList(props){
                 <QuizInfoListItem 
                     text={`${props.passing} Pts`}
                     icon ={<TrackChangesIcon/>}
+                />
+
+                <QuizInfoListItem 
+                    text={props.creator}
+                    icon = {<PersonIcon/>}
                 />
             </List>
         </>

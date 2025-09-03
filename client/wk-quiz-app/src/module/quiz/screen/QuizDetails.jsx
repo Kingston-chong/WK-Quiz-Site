@@ -22,6 +22,7 @@ function QuizDetails(){
                                 duration = {quizData.duration}
                                 attempt = {0}
                                 passing = {quizData.passing}
+                                creator = {quizData.creator??"Anonymous"}
                             />
                             <QuizStartButton text='Start Quiz' id={id}/>
                         </div>
