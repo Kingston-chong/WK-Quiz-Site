@@ -8,3 +8,8 @@
     text-transform: none !important;
     color: white;
 }
+
+.nav-button-link{
+    text-decoration: none;
+    color: inherit;
+}

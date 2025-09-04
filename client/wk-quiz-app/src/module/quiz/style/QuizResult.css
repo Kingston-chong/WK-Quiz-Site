@@ -1,13 +1,17 @@
 .quiz-result-page{
     display: flex;
     flex-direction: column;
-    
 }
 
 .quiz-result-page a{
-   margin-inline: 30%;
+   align-self: center;
    margin-top: 100px;
 }
+
+.quiz-result-page button{
+    padding-inline: 30px;
+    text-wrap: nowrap;
+ }
 
 .quiz-result-title{
     margin-top: 50px;
