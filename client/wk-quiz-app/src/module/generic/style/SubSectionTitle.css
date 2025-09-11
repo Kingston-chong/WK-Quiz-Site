@@ -1,0 +1,19 @@
+.subsection-title-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.subsection-title-container hr{
+    margin: 0px;
+    width: 10px;
+    border: none;
+    background-color: rgba(251, 109, 58, 1);
+    border-radius: 10px;
+}
+
+.subsection-title-container h3{
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 3%;
+    color: rgba(90, 25, 202, 1);
+}

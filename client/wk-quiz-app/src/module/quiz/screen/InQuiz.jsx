@@ -69,7 +69,6 @@ function InQuiz(){
                     pts = {currQuestion.pts}
                     returnTime = {()=>{
                         setTimeUsed(timeUsed+1);
-                        console.log(timeUsed);
                     }}
                 />
 

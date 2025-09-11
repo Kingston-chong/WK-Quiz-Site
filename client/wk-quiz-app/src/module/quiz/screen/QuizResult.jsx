@@ -2,8 +2,8 @@ import { useLocation, useParams } from "react-router-dom";
 import AppButton from "../../generic/components/AppButton";
 import QuizResultPanel from "../components/QuizResultPanel";
 import '../style/QuizResult.css'; 
-import AccuracyCircularPercentage from "../components/AccuracyCircularPercentage";
-
+import QuizSummaryPanel from "../components/QuizSummaryPanel";
+import { List, ListItem, ListItemText, ListSubheader } from "@mui/material";
 
 function QuizResult(){
 
@@ -28,20 +28,21 @@ function QuizResult(){
         <>  
         
             <div className="quiz-result-page">
-                <div className="quiz-result-title">
-                    <h1>Result</h1>
-                    <hr/>
-                </div>
-                
-                <div className="quiz-result-top-container">
-                    <h1>{resultData.title}</h1>
-                    <div className="quiz-result-top">
-                        <AccuracyCircularPercentage percentage = {accuracy} isPassed={isPassed}/>
-                    </div>
-                    
-                </div>
 
-                <QuizResultPanel 
+                <QuizResultPanel
+                    pass = {isPassed}
+                    accuracy={accuracy}
+                />
+
+                <List className='quiz-summary-quizname'>
+                    <ListItem>
+                        <ListItemText>Quiz Taken</ListItemText>
+                        <ListSubheader>{resultData.title}</ListSubheader>
+                    </ListItem>
+                </List>
+
+                <QuizSummaryPanel 
+                    title={resultData.title}
                     correct = {resultData.correct}
                     wrong = {resultData.wrong}
                     score = {resultData.totalScore}
@@ -51,7 +52,7 @@ function QuizResult(){
                 <AppButton 
                     type='primary' 
                     title='Back To Dashboard' 
-                    url='/WK-Quiz-Site/dashboard/'
+                    url='/WK-Quiz-Site/dashboard/'  
                 />
 
             </div>
