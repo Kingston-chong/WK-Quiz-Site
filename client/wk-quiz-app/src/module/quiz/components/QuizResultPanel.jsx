@@ -1,49 +1,38 @@
-import { List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
-import StarsIcon from '@mui/icons-material/Stars';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import DangerousIcon from '@mui/icons-material/Dangerous';
-import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import '../style/QuizResultPanel.css';
+import QuizResultIndicator from './QuizResultIndicator';
 
 function QuizResultPanel(props){
+
+    function getPassedMsg(isPassed){
+
+        if(isPassed){
+            return(
+                <>
+                    <h1 className='quiz-result-msg-pass'>Congrats !</h1>
+                    <p>You Did well in the test</p>
+                </>
+            )
+        }
+        
+        return (
+            <>
+                <h1 className='quiz-result-msg-fail'>Failed</h1>
+                <p>Try Harder Next Time.</p>
+            </>
+        )
+    }
+
     return(
         <>
-            <List className="quiz-result-panel">
-
-                <ListItem className='quiz-result-panel-item'>
-                    <ListItemIcon>
-                        <AccessTimeFilledIcon htmlColor='indigo'/>
-                    </ListItemIcon>
-                    <ListItemText>Time Used</ListItemText>
-                    <ListSubheader>{props.timeUsed}</ListSubheader>
-                </ListItem>
-
-                <ListItem className='quiz-result-panel-item'>
-                    <ListItemIcon>
-                        <StarsIcon htmlColor='goldenrod'/>
-                    </ListItemIcon>
-                    <ListItemText>Score</ListItemText>
-                    <ListSubheader>{props.score} pts</ListSubheader>
-                </ListItem>
-
-                <ListItem className='quiz-result-panel-item'>
-                    <ListItemIcon>
-                        <CheckCircleIcon color='success'/>
-                    </ListItemIcon>
-                    <ListItemText>Correct</ListItemText>
-                    <ListSubheader>{props.correct}</ListSubheader>
-                </ListItem>
-
-                <ListItem className='quiz-result-panel-item'>
-                    <ListItemIcon>
-                        <DangerousIcon color='error'/>
-                    </ListItemIcon>
-                    <ListItemText>Wrong</ListItemText>
-                    <ListSubheader>{props.wrong}</ListSubheader>
-                </ListItem>
-            </List>
+            <div className='quiz-result-panel'>
+                <div className='quiz-result-message'>
+                    {getPassedMsg(props.pass)}        
+                </div>
+                
+                <QuizResultIndicator accuracy = {props.accuracy}/>
+            </div>
         </>
     )
-};
+}
 
-export default QuizResultPanel; 
+export default QuizResultPanel;

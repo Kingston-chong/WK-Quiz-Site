@@ -1,6 +1,7 @@
 .quiz-result-page{
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
 }
 
 .quiz-result-page a{
@@ -11,44 +12,15 @@
 .quiz-result-page button{
     padding-inline: 30px;
     text-wrap: nowrap;
- }
-
-.quiz-result-title{
-    margin-top: 50px;
 }
 
-.quiz-result-title h1{
-    text-align: center;
-    color: rgba(90, 25, 202, 1);
-    margin: 0px;
+.quiz-summary-quizname li{
+    font-size: 28px !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-weight: bold !important;
 }
 
-.quiz-result-title hr{
-    width: 5%;
-    height: 10px;
-    background-color: rgba(251, 109, 58, 1);
+.quiz-summary-quizname{
+    box-shadow: 0px 0px 3px rgb(196, 196, 196); 
     border-radius: 20px;
-    border: none;
-    margin-top: 5px;
-}
-
-.quiz-result-top-container{
-    display: flex;
-    flex-direction: row;
-    background-color: white;
-    box-shadow: 0px 0px 3px rgb(219, 219, 219);
-    border-radius: 30px;
-    padding-block: 30px;
-    padding-inline: 3%;
-}
-
-.quiz-result-top-container h1{
-    width: 40%;
-}
-
-.quiz-result-top{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    align-items: center;
 }
