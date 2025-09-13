@@ -1,8 +1,20 @@
+import { useEffect, useState } from "react";
 import QuizCard from "../components/QuizCard";
 import Quiz from "../data/Quiz";
 import '../style/QuizMain.css';
+import axios from "axios";
 
 function QuizMain(){
+    useEffect(()=>{
+        axios.get("http://localhost:8000/api/quiz/")
+        .then(resp=>{
+            setQuizList(resp.data.quizData);
+        })
+        .catch(err=>console.error("Error"))
+    });
+
+    const [quizList,setQuizList] = useState([]);
+
     return(
         <>
             <div className="quiz-main-page">
@@ -22,6 +34,20 @@ function QuizMain(){
                     }
                 </div>
                 
+                <h1>Testing API</h1>
+                <div className="quiz-list-container">
+                    {  
+                        quizList.map((e,index)=>(
+                            <QuizCard 
+                                title = {e.title}
+                                duration = {e.duration}
+                                id = {e.id}
+                                imgUrl = {e.imgUrl}
+                                index = {index}
+                            />
+                        ))
+                    }
+                </div>
             </div>
         </>
     )
