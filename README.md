@@ -1,5 +1,6 @@
-# WK Quiz Site
+# WK Quiz : Web Project Focusing On Quiz Based Learning
 
-Quiz Site For Education Purpose Build Using ReactJs.
+This Web Application provides a platform for accessing learning progress with quiz tools.
 
-Demo link : [https://jediwong.github.io/WK-Quiz-Site]
+# Demo
+Demo link (Vercel) : [https://wk-quiz-site.vercel.app]
