@@ -14,7 +14,7 @@ function QuizCard(props){
     return(
         <>  
             <Link 
-                to={`/WK-Quiz-Site/QuizDetails/${props.id}`} 
+                to={`/QuizDetails/${props.id}`} 
                 className="quiz-card-container"
                 style={{
                     backgroundImage :`url(${props.imgUrl??placeholder})`

@@ -1,6 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Dashboard from './module/dashboard/screen/dashboard';
-import Layout from './module/generic/screen/layout';
+import Layout from './module/generic/screen/Layout';
 import QuizDetails from './module/quiz/screen/QuizDetails';
 import InQuiz from './module/quiz/screen/InQuiz';
 import QuizLayout from './module/quiz/screen/QuizLayout';
@@ -13,7 +13,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/WK-Quiz-Site/' element={<Layout/>}>
+          <Route path='/' element={<Layout/>}>
             <Route index element={<Dashboard/>}/>
             <Route path='dashboard' element={<Dashboard/>}/>
             <Route path='QuizDetails/:id' element={<QuizDetails/>}/>
@@ -21,7 +21,7 @@ function App() {
             <Route path='Quiz' element={<QuizMain/>}/>
           </Route>
 
-          <Route path='/WK-Quiz-Site/quiz' element={<QuizLayout/>}>
+          <Route path='/quiz' element={<QuizLayout/>}>
             <Route index path='InQuiz/:id' element={<InQuiz/>}/>
           </Route>
         </Routes>
