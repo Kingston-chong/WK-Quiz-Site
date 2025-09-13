@@ -19,7 +19,7 @@ function QuizHeaderPanel(props){
             <div className='quiz-header-bg'>
                 <div className="quiz-header-panel-container">
                     <div className="quiz-header-panel">
-                        <AppButton title='Exit' type='exit' url='/WK-Quiz-Site/dashboard/'/>
+                        <AppButton title='Exit' type='exit' url='/dashboard/'/>
                         <h1>{displayTitle}</h1>
                         <div className='question-pts'>{props.pts} pts</div>
                         <div className='quiz-header-ques'>Q{props.questionNo}   <sub>of {props.total}</sub></div>

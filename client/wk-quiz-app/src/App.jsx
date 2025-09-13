@@ -13,7 +13,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/WK-Quiz-Site/' element={<Layout/>}>
+          <Route path='/' element={<Layout/>}>
             <Route index element={<Dashboard/>}/>
             <Route path='dashboard' element={<Dashboard/>}/>
             <Route path='QuizDetails/:id' element={<QuizDetails/>}/>
@@ -21,7 +21,7 @@ function App() {
             <Route path='Quiz' element={<QuizMain/>}/>
           </Route>
 
-          <Route path='/WK-Quiz-Site/quiz' element={<QuizLayout/>}>
+          <Route path='/quiz' element={<QuizLayout/>}>
             <Route index path='InQuiz/:id' element={<InQuiz/>}/>
           </Route>
         </Routes>

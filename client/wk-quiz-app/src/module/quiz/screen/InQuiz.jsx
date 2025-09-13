@@ -49,7 +49,7 @@ function InQuiz(){
             }; 
 
             localStorage.setItem(`result/${quizData.id}?token=${token}`,JSON.stringify(result));
-            navigate(`../../WK-Quiz-Site/result/${quizData.id}?token=${token}`);
+            navigate(`../../result/${quizData.id}?token=${token}`);
         }   
         else if(currNo>0&&currNo<=questionData.length){
             
