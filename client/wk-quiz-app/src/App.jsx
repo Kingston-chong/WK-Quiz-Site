@@ -1,6 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Dashboard from './module/dashboard/screen/dashboard';
-import Layout from './module/generic/screen/layout';
+import Layout from './module/generic/screen/Layout';
 import QuizDetails from './module/quiz/screen/QuizDetails';
 import InQuiz from './module/quiz/screen/InQuiz';
 import QuizLayout from './module/quiz/screen/QuizLayout';
