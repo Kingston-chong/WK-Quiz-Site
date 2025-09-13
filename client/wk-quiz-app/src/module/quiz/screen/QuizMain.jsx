@@ -6,7 +6,7 @@ import axios from "axios";
 
 function QuizMain(){
     useEffect(()=>{
-        axios.get("http://localhost:8000/api/quiz/")
+        axios.get("https://wk-quiz-site.onrender.com/api/quiz/")
         .then(resp=>{
             setQuizList(resp.data.quizData);
         })
@@ -41,7 +41,7 @@ function QuizMain(){
                             <QuizCard 
                                 title = {e.title}
                                 duration = {e.duration}
-                                id = {e.id}
+                                id = {e._id}
                                 imgUrl = {e.imgUrl}
                                 index = {index}
                             />

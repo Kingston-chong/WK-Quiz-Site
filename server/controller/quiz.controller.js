@@ -42,7 +42,7 @@ export async function viewQuiz(req,res){
 
     try {
         const retrieveQuiz = await Quiz.findById(id);
-        res.status(200).json({success:true,data:retrieveQuiz,message:"success fetch"});
+        res.status(200).json({success:true,quizData:retrieveQuiz,message:"success fetch"});
     } catch (error) {
         console.log("Error while fetching quiz data");
         return res.status(500).json({success:false,message:"Server Error"});

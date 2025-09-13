@@ -15,8 +15,8 @@ connectDB();
 //routes
 app.use("/api/quiz",QuizRoutes);
 
-//running server on localhost
+//running server
 const port = process.env.PORT || 5000; 
 app.listen(port,()=>{
-    console.log(`server running on http://localhost:${port}`);
+    console.log(`server running on port ${port}`);
 });
