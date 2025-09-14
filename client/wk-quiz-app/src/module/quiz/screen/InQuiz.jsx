@@ -1,20 +1,44 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
-import Quiz from "../data/Quiz";
-import Questions from "../data/Questions";
 import QuestionOpts from "../components/QuestionOpts";
 import QuizStatusPanel from "../components/QuizStatusPanel";
 import QuizHeaderPanel from "../components/QuizHeaderPanel";
 import '../style/InQuiz.css';
+import axios from "axios";
 
 function InQuiz(){
 
     const {id} = useParams();
-    const quizData = Quiz[id-1];
-    const questions = Questions[id-1];
+    const apiUrl = import.meta.env.VITE_API_URL;
+    const [quizData,setQuizData] = useState([]);
+    const [questions,setQuestion] = useState([]);
 
-    const questionData = useMemo(() => {
-        const arr = [...questions.data];
+    useEffect(()=>{
+        const fetchData = async() =>{
+            try {
+                const quizResp = await axios.get(apiUrl+"/quiz/"+id)
+                setQuizData(quizResp.data.quizData);
+                
+                const quesId = quizResp.data.quizData.questions;
+                const quesResp = await axios.get(apiUrl+"/question/"+quesId)
+                setQuestion(quesResp.data.questions.questionData);
+                
+            } catch (err) {
+                console.error("Error fetching Data : ",err);
+            }
+        }
+        fetchData();
+    },[id,apiUrl]);
+
+    const navigate = useNavigate();
+    const [totalCorr,setTotalCorr] = useState(0);
+    const [totalWrong,setTotalWrong] = useState(0);
+    const [totalScore,setTotalScore] = useState(0);
+    const [timeUsed,setTimeUsed] = useState(0);
+    const token = crypto.randomUUID();
+    
+    const shuffledQuestion = useMemo(() => {
+        const arr = [...questions];
         let currIndex = arr.length;
         while (currIndex !== 0) {
             const randomIndex = Math.floor(Math.random() * currIndex);
@@ -22,89 +46,87 @@ function InQuiz(){
             [arr[currIndex], arr[randomIndex]] = [arr[randomIndex], arr[currIndex]];
         }
         return arr;
-    }, [questions]);
+    }, [questions])
 
     const [currNo,setCurrNo] = useState(1);
-    const [currQuestion,setCurrQuestion] = useState(questionData[currNo-1]);
-    const navigate = useNavigate();
-    const [totalCorr,setTotalCorr] = useState(0);
-    const [totalWrong,setTotalWrong] = useState(0);
-    const [totalScore,setTotalScore] = useState(0);
-    const [timeUsed,setTimeUsed] = useState(0);
-
-    const token = crypto.randomUUID();
+    const [currQuestion,setCurrQuestion] = useState([]);
 
     useEffect(()=>{
+
+        if(shuffledQuestion.length>0){
+            if(currNo>0&&currNo<=shuffledQuestion.length){
+                setCurrQuestion(shuffledQuestion[currNo-1]); 
+            }
+        
+            if(currNo==shuffledQuestion.length+1){
+                
+                const result = {
+                    title : quizData.title,
+                    passing : quizData.passing,
+                    correct : totalCorr,
+                    wrong : shuffledQuestion.length - totalCorr,
+                    total : shuffledQuestion.length,
+                    totalScore : totalScore,
+                    timeUsed : timeUsed
+                }; 
     
-        if(currNo ==questionData.length+1){
-            
-            const result = {
-                title : quizData.title,
-                passing : quizData.passing,
-                correct : totalCorr,
-                wrong : questionData.length - totalCorr,
-                total : questionData.length,
-                totalScore : totalScore,
-                timeUsed : timeUsed
-            }; 
-
-            localStorage.setItem(`result/${quizData.id}?token=${token}`,JSON.stringify(result));
-            navigate(`../../result/${quizData.id}?token=${token}`);
-        }   
-        else if(currNo>0&&currNo<=questionData.length){
-            
-            setCurrQuestion(questionData[currNo-1]); 
+                localStorage.setItem(`result/${quizData._id}?token=${token}`,JSON.stringify(result));
+                navigate(`../../result/${quizData._id}?token=${token}`);
+            }   
         }
+        
 
-    },[currNo,questionData,quizData,totalCorr,totalScore,token]);
+    },[currNo,shuffledQuestion,quizData,totalCorr,totalScore,token]);
 
-    return(
-        <>
-            <div className="inquiz-page">
-
-                <QuizHeaderPanel 
-                    questionNo = {currNo}
-                    title = {quizData.title}
-                    total = {questionData.length}
-                    pts = {currQuestion.pts}
-                    returnTime = {()=>{
-                        setTimeUsed(timeUsed+1);
-                    }}
-                />
-
-                <div className="question-container">
-                    <h1>{currQuestion.title}</h1>
-                    
-                    {
-                        currQuestion.nonSelectOpts&&currQuestion.nonSelectOpts.map((e)=>(
-                            <p>{e}</p>
-                        ))
-                    }
-
-                    <QuestionOpts 
-                        data={currQuestion.opts} 
-                        correct={currQuestion.correct}
-                        nxQues={()=>{
-                            setCurrNo(currNo+1);
+    if(shuffledQuestion.length>0){
+        return(
+            <>  
+                <div className="inquiz-page">
+    
+                    <QuizHeaderPanel 
+                        questionNo = {currNo}
+                        title = {quizData.title??""}
+                        total = {shuffledQuestion.length}
+                        pts = {currQuestion.pts}
+                        returnTime = {()=>{
+                            setTimeUsed(timeUsed+1);
                         }}
-                        markCorr={()=>{
-                            setTotalCorr(totalCorr+1);
-                            setTotalScore(totalScore+currQuestion.pts);
-                        }}
-                        markWrong={()=>{
-                            setTotalWrong(totalWrong+1);
-                        }}
-                   />
+                    />
+    
+                    <div className="question-container">
+                        <h1>{currQuestion.title}</h1>
+                        
+                        {
+                            currQuestion.nonSelectOpts&&currQuestion.nonSelectOpts.map((e)=>(
+                                <p>{e}</p>
+                            ))
+                        }
+    
+                        <QuestionOpts 
+                            data={currQuestion.opts??[]} 
+                            correct={currQuestion.correct}
+                            nxQues={()=>{
+                                setCurrNo(currNo+1);
+                            }}
+                            markCorr={()=>{
+                                setTotalCorr(totalCorr+1);
+                                setTotalScore(totalScore+currQuestion.pts);
+                            }}
+                            markWrong={()=>{
+                                setTotalWrong(totalWrong+1);
+                            }}
+                       />
+                    </div>
+    
+                    <QuizStatusPanel 
+                        score = {totalScore}
+                        correct = {totalCorr}
+                        wrong = {totalWrong}
+                    />
                 </div>
-
-                <QuizStatusPanel 
-                    score = {totalScore}
-                    correct = {totalCorr}
-                    wrong = {totalWrong}
-                />
-            </div>
-        </>
-    )
+            </>
+        )
+    }
 }
 
 export default InQuiz;

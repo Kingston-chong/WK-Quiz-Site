@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import placeholder from '../../../assets/quiz/q_1.png';
 import '../style/QuizCard.css';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 function QuizCard(props){
-
     const getTitle=(title)=>{
         if(title.length>=30){
             return `${title.substr(0,30)}...`;
