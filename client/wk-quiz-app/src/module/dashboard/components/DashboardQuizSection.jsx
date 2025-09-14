@@ -2,24 +2,42 @@ import TitleBar from '../../generic/components/TitleBar';
 import QuizCard from '../../quiz/components/QuizCard';
 import '../style/DashboardQuizSection.css'; 
 import Quiz from '../../quiz/data/Quiz';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-function DashboardQuizSection(props){
-    return(
-        <>
-            <div className="dashboard-quiz-section">
-                <TitleBar
-                    title='Featured Quiz'
-                    link=''
-                />
+function DashboardQuizSection(){
 
-                <div className="dashboard-quiz-container">
-                    <QuizCard id={Quiz[0].id} title={Quiz[0].title} duration={Quiz[0].duration} imgUrl={Quiz[0].imgUrl}/>
-                    <QuizCard id={Quiz[1].id} title={Quiz[1].title} duration={Quiz[1].duration} imgUrl={Quiz[1].imgUrl}/>
-                    <QuizCard id={Quiz[2].id} title={Quiz[2].title} duration={Quiz[2].duration} imgUrl={Quiz[2].imgUrl}/>
+    const api_url = import.meta.env.VITE_API_URL;
+    const [quizData,setQuizData] = useState(null);
+
+    useEffect(()=>{
+        axios.get(api_url+"/quiz/")
+        .then(resp=>{
+            setQuizData(resp.data.quizData)
+        });
+    })
+
+    if(quizData){
+        return(
+            <>
+                <div className="dashboard-quiz-section">
+                    <TitleBar
+                        title='Featured Quiz'
+                        link=''
+                    />
+    
+                    <div className="dashboard-quiz-container">
+                        {quizData.map((e,index)=>{
+                            if(index<=2){
+                                return <QuizCard id={e._id} title={e.title} duration={e.duration} imgUrl={e.imgUrl}/>
+                            }
+                        })}
+                    </div>
                 </div>
-            </div>
-        </>
-    )
+            </>
+        )
+    }
+    
 }
 
 export default DashboardQuizSection;
