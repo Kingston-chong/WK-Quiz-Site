@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import QuizCard from "../components/QuizCard";
-import Quiz from "../data/Quiz";
 import '../style/QuizMain.css';
 import axios from "axios";
 
 function QuizMain(){
+    const api_url = import.meta.env.VITE_API_URL;
     useEffect(()=>{
-        axios.get("https://wk-quiz-site.onrender.com/api/quiz/")
+        axios.get(api_url+"/quiz/")
         .then(resp=>{
             setQuizList(resp.data.quizData);
         })
-        .catch(err=>console.error("Error"))
+        .catch(err=>console.error("Error Fetching Data : ",err))
     });
 
     const [quizList,setQuizList] = useState([]);
@@ -33,6 +33,7 @@ function QuizMain(){
                         ))
                     }
                 </div>
+                
             </div>
         </>
     )

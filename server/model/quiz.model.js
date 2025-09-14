@@ -16,6 +16,9 @@ const quizSchema = new mongoose.Schema({
       type:Number,
       require:true,
     },
+    imgUrl:{
+        type:String
+    },
     questions:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Question",

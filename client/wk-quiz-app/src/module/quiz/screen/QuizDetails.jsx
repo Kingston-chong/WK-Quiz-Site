@@ -21,6 +21,15 @@ function QuizDetails(){
         })
     })
 
+    const date = new Date(quizData.createdAt).toLocaleDateString(
+        "en-MY",
+        {
+            year:"numeric",
+            month:"long",
+            day:"numeric"
+        }
+    )
+
     return(
         <>
             <div className="quiz-details-page">
@@ -30,7 +39,7 @@ function QuizDetails(){
 
                         <div className='quiz-info-list-container'>
                             <QuizInfoList
-                                createDate = {quizData.createdAt}
+                                createDate = {date}
                                 duration = {quizData.duration}
                                 attempt = {0}
                                 passing = {quizData.passing}
