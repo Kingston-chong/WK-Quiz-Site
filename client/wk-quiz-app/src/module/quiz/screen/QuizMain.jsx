@@ -22,21 +22,6 @@ function QuizMain(){
 
                 <div className="quiz-list-container">
                     {  
-                        Quiz.map((e,index)=>(
-                            <QuizCard 
-                                title = {e.title}
-                                duration = {e.duration}
-                                id = {e.id}
-                                imgUrl = {e.imgUrl}
-                                index = {index}
-                            />
-                        ))
-                    }
-                </div>
-                
-                <h1>Testing API</h1>
-                <div className="quiz-list-container">
-                    {  
                         quizList.map((e,index)=>(
                             <QuizCard 
                                 title = {e.title}

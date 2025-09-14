@@ -3,18 +3,16 @@ import '../style/QuizDetails.css';
 import QuizInfoList from '../components/QuizInfoList';
 import QuizStartButton from '../components/QuizStartButton';
 import { useParams } from 'react-router-dom';
-import Quiz from '../data/Quiz';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function QuizDetails(){
     const {id} = useParams();
-    //const quizData = Quiz[id-1];
-
     const [quizData,setQuizData] = useState([]);
 
     useEffect(()=>{
-        axios.get("https://wk-quiz-site.onrender.com/api/quiz/"+id)
+        const apiURL = import.meta.env.VITE_API_URL;
+        axios.get(apiURL+"/quiz/"+id)
         .then(resp=>{
             setQuizData(resp.data.quizData);
         })
