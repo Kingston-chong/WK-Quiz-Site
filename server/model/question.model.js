@@ -2,21 +2,26 @@ import mongoose from 'mongoose';
 
 const questionSchema = new mongoose.Schema({
     
-    quizID:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Quiz',
+    questionData:{
+        type:[],
         required:true,
-    },
-    data:{
         title:{
             type:String,
             required:true
         },
-        options:{
+        nonSelectOpts:{
+            type:[String],
+            required:false
+        },
+        opts:{
             type:[String],
             required:true
         },
-        answer:{
+        correct:{
+            type:Number,
+            required:true
+        },
+        pts:{
             type:Number,
             required:true
         }
@@ -25,6 +30,6 @@ const questionSchema = new mongoose.Schema({
     timestamps:true
 })
 
-const Question = new mongoose.model('Question',questionSchema);
+const Question = mongoose.model('Question',questionSchema);
 
 export default Question;

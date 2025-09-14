@@ -34,10 +34,9 @@ export async function getQuiz(req,res){
 
 export async function viewQuiz(req,res){
     const {id} = req.params; 
-    const quiz = req.body;
 
     if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({success:false,message:"quiz record not found"});
+        return res.status(404).json({success:false,message:"Invalid Id"});
     }
 
     try {
