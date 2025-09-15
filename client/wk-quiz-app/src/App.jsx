@@ -7,7 +7,7 @@ import QuizLayout from './module/quiz/screen/QuizLayout';
 import QuizResult from './module/quiz/screen/QuizResult';
 import QuizMain from './module/quiz/screen/QuizMain';
 import AuthLayout from './module/auth/screen/AuthLayout';
-import Login from './module/auth/screen/login';
+import Login from './module/auth/screen/Login';
 import Register from './module/auth/screen/Register';
 
 function App() {
