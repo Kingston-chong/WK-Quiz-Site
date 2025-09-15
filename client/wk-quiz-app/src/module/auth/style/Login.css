@@ -4,6 +4,7 @@
     box-shadow: -1px 0px 3px;
     width: 50%;
     align-items: center;
+    padding-block: 30px;
 }
 
 .login-container svg{
@@ -17,6 +18,8 @@
     flex-direction: row;
     column-gap: 5%;
     text-wrap: nowrap;
+    margin-top: 30px;
+    align-items: center;
 }
 
 .to-register p{
@@ -31,23 +34,21 @@
 }
 
 
-.login-form-container{
-    margin-top: 100px;
-    margin-bottom: 50px;
+.login-form{
     display: flex;
     flex-direction: column;
     text-align: center;
-    border-radius: 20px;
-    padding-block: 30px;
-    align-self: center;
+    row-gap: 10px;
+    width: 35vw;
+    margin-top: 50px;
 }
 
-.login-form-container h1{
+.login-container h1{
     font-size: 32px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.login-form-container hr{
+.login-container hr{
     border: none;
     background-color: rgb(255, 77, 0);
     height: 3px;
@@ -57,7 +58,7 @@
 }
 
 
-.login-form-container a{
+.login-form a{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: left;
     font-size: 20px;
@@ -65,19 +66,8 @@
     width: fit-content;
 }
 
-.login-form-container button{
+.login-form button{
     margin-top: 50px;  
     font-weight: bold;  
 }
 
-.login-form{
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    width: 25vw;
-}
-
-.login-form input{
-    height: 20px;
-    font-size: 20px;
-}

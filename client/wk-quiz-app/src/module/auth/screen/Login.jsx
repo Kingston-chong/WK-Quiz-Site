@@ -8,26 +8,26 @@ function Login (){
     return(
         <>  
             <div className='login-container'>
-                <div className='login-form-container'>
 
-                    <AccountCircleIcon/>
-                    <h1>Sign In</h1>
-                    <hr/>
-
-                    <div className='login-form'>
-                        <TextField 
-                            placeholder='Username'
-                        />
-                        <TextField 
-                            type='password'
-                            placeholder='Password'
-                        />
-                        <Link>Forgot Password</Link>
-                        <AppButton
-                            type = "primary" 
-                            title  = "Login"
-                        />
-                    </div>
+                <AccountCircleIcon/>
+                <h1>Sign In</h1>
+                <hr/>
+                <div className='login-form'>
+                    <TextField 
+                        type="email"
+                        placeholder='Email'
+                        label="Email"
+                    />
+                    <TextField 
+                        type='password'
+                        placeholder='Password'
+                        label="Password"
+                    />
+                    <Link>Forgot Password</Link>
+                    <AppButton
+                        type = "primary" 
+                        title  = "Login"
+                    />
                 </div>
 
                 <div className='to-register'>
