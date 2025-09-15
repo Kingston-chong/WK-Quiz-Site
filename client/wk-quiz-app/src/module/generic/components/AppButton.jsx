@@ -9,7 +9,7 @@ function NavigationButton(props){
     return(
         <>
             <Link className="nav-button-link" to={props.url}>
-                <Button className={`btn-${props.type}`} variant="contained">{props.title}</Button>
+                <Button className={`btn-${props.type??"default"}`} variant="contained">{props.title}</Button>
             </Link>
         </>
     )

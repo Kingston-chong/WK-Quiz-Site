@@ -34,6 +34,7 @@ function Login (){
                     <p>Does Not Have An Account ?</p>
                     <AppButton 
                         title = "Sign Up Here"
+                        url = "/auth/register/"
                     />
                 </div>
 
