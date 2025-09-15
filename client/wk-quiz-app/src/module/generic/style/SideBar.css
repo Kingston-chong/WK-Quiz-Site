@@ -5,6 +5,11 @@
     width: 15%;
     min-height: 100vh;
     position: fixed;
+    padding-block: 30px;
+}
+
+.sidebar-container a{
+    align-self: center;
 }
 
 .sidebar-nav{ 

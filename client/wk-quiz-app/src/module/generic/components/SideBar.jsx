@@ -6,7 +6,7 @@ function SideBar(){
     return(
         <>
             <div className='sidebar-container'>
-                <AppLogo></AppLogo>
+                <AppLogo url="/dashboard/"/>
                 
                 <ul className="sidebar-nav">
                     <li>

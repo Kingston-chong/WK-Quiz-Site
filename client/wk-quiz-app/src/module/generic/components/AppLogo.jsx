@@ -1,11 +1,13 @@
+import { Link } from 'react-router-dom';
 import '../style/AppLogo.css';
 
-function AppLogo(){
+function AppLogo(props){
     return(
-        <>
-            <div className="app-logo-container">
-                <h1>WK Quiz</h1>
-            </div>
+        <>  
+            <Link className="app-logo-container" to={props.url}>
+                <div className="app-logo"></div>
+            </Link>
+            
         </>
     )
 }
