@@ -32,7 +32,7 @@ function AppButton(props){
     else{
         return(
             <>
-                <Button className={`btn-${props.type}`} variant="contained" href={props.url}>{props.title}</Button>
+                <Button className={`btn-${props.type??"default"}`} variant="contained" href={props.url}>{props.title}</Button>
             </>
         );
     }

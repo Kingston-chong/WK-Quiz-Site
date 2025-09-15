@@ -6,6 +6,8 @@ import InQuiz from './module/quiz/screen/InQuiz';
 import QuizLayout from './module/quiz/screen/QuizLayout';
 import QuizResult from './module/quiz/screen/QuizResult';
 import QuizMain from './module/quiz/screen/QuizMain';
+import AuthLayout from './module/auth/screen/AuthLayout';
+import Login from './module/auth/screen/login';
 
 function App() {
 
@@ -13,6 +15,11 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+
+          <Route path='/auth' element={<AuthLayout/>}>
+            <Route element={<Login/>} path='login'/>
+          </Route>
+
           <Route path='/' element={<Layout/>}>
             <Route index element={<Dashboard/>}/>
             <Route path='dashboard' element={<Dashboard/>}/>
