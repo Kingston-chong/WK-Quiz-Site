@@ -8,6 +8,7 @@ import QuizResult from './module/quiz/screen/QuizResult';
 import QuizMain from './module/quiz/screen/QuizMain';
 import AuthLayout from './module/auth/screen/AuthLayout';
 import Login from './module/auth/screen/login';
+import Register from './module/auth/screen/Register';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
 
           <Route path='/auth' element={<AuthLayout/>}>
             <Route element={<Login/>} path='login'/>
+            <Route element={<Register/>} path='register'/>
           </Route>
 
           <Route path='/' element={<Layout/>}>
