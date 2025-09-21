@@ -4,6 +4,13 @@ body{
     overflow-y: scroll;
 }
 
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .overlay{
     height: inherit;
     border-radius: inherit;

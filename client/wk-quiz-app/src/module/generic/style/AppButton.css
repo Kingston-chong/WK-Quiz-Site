@@ -1,3 +1,7 @@
+.btn-default{
+    text-transform: none !important;
+}
+
 .btn-primary{
     background-color: rgba(90, 25, 202, 1) !important;
     text-transform: none !important;

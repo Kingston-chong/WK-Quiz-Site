@@ -1,0 +1,40 @@
+.auth-side-panel-container{
+    background-image: url('/auth_bg.png');
+    background-position: 0px 0px;
+    background-size: 50vw 100vh;
+    width: 50%;
+    padding-block: 30px;
+}
+
+.auth-side-panel-container .app-logo{
+    justify-self: center;
+    width: 150px !important;
+    height: 150px !important;
+}
+
+.auth-side-panel-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-side-panel-content h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-align: center;
+    text-shadow: 5px 5px 3px rgb(58, 58, 58);
+    font-size: 32px;
+}
+
+.auth-side-panel-content p{
+    position: absolute;
+    top: 80vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: orangered;
+    background-color: rgba(71, 71, 71, 0.477);
+    padding-block: 30px;
+    text-align: center;
+    text-wrap: nowrap;
+    width: 40%;
+    text-shadow: 3px 3px 3px black;
+}

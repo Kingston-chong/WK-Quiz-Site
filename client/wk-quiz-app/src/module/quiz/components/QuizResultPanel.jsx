@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import '../style/QuizResultPanel.css';
 import QuizResultIndicator from './QuizResultIndicator';
 

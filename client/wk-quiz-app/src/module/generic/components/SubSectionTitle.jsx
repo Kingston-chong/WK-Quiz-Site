@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import '../style/SubSectionTitle.css'; 
 
 function SubSectionTitle(props){
@@ -8,6 +9,7 @@ function SubSectionTitle(props){
                 <h3>
                     {props.title}
                 </h3>
+                <Button className="subsection-title-btn" href={`${props.url}`} variant='contained'>{props.action}</Button>
             </div>
         </>
     )

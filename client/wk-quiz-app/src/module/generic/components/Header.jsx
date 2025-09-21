@@ -16,7 +16,7 @@ function Header(){
                     variant='contained'
                 />
                 
-                <AccountButton currUser = 'User'/>
+                <AccountButton currUser = 'USER'/>
             </div>
            
         </>

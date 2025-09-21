@@ -25,7 +25,7 @@ function QuestionOpts(props){
             setShowResult(true);
     
             const timer = setTimeout(()=>{
-                props.nxQues();
+                props.nxQues(selectedAns,isCorrect);
                 setSelectedAns(null);
                 setShowResult(false);
             },1000)

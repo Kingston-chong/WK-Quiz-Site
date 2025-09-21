@@ -6,6 +6,10 @@ import InQuiz from './module/quiz/screen/InQuiz';
 import QuizLayout from './module/quiz/screen/QuizLayout';
 import QuizResult from './module/quiz/screen/QuizResult';
 import QuizMain from './module/quiz/screen/QuizMain';
+import AuthLayout from './module/auth/screen/AuthLayout';
+import Login from './module/auth/screen/Login';
+import Register from './module/auth/screen/Register';
+import QuestionReview from './module/quiz/screen/QuestionReview';
 
 function App() {
 
@@ -13,11 +17,18 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+
+          <Route path='/auth' element={<AuthLayout/>}>
+            <Route element={<Login/>} path='login'/>
+            <Route element={<Register/>} path='register'/>
+          </Route>
+
           <Route path='/' element={<Layout/>}>
             <Route index element={<Dashboard/>}/>
             <Route path='dashboard' element={<Dashboard/>}/>
             <Route path='QuizDetails/:id' element={<QuizDetails/>}/>
             <Route path='Result/:id' element={<QuizResult/>}/>
+            <Route path='QuestionReview/:id' element={<QuestionReview/>}/>
             <Route path='Quiz' element={<QuizMain/>}/>
           </Route>
 

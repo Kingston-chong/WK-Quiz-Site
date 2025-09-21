@@ -35,6 +35,7 @@ function InQuiz(){
     const [totalWrong,setTotalWrong] = useState(0);
     const [totalScore,setTotalScore] = useState(0);
     const [timeUsed,setTimeUsed] = useState(0);
+    const [userAction,setUserAction] = useState([]);
     const token = crypto.randomUUID();
     
     const shuffledQuestion = useMemo(() => {
@@ -67,7 +68,8 @@ function InQuiz(){
                     wrong : shuffledQuestion.length - totalCorr,
                     total : shuffledQuestion.length,
                     totalScore : totalScore,
-                    timeUsed : timeUsed
+                    timeUsed : timeUsed,
+                    userAction:userAction
                 }; 
     
                 localStorage.setItem(`result/${quizData._id}?token=${token}`,JSON.stringify(result));
@@ -105,7 +107,16 @@ function InQuiz(){
                         <QuestionOpts 
                             data={currQuestion.opts??[]} 
                             correct={currQuestion.correct}
-                            nxQues={()=>{
+                            nxQues={(select,res)=>{
+                                setUserAction(prev=>[
+                                    ...prev,{
+                                        "no":currNo,
+                                        "ques":currQuestion,
+                                        "select":select,
+                                        "res":res
+                                    }
+                                ]);
+                                console.log(userAction);
                                 setCurrNo(currNo+1);
                             }}
                             markCorr={()=>{
