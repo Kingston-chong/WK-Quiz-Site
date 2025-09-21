@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { data, useLocation, useParams } from "react-router-dom";
 import AppButton from "../../generic/components/AppButton";
 import QuizResultPanel from "../components/QuizResultPanel";
 import '../style/QuizResult.css'; 
@@ -11,13 +11,15 @@ function QuizResult(){
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const token = queryParams.get("token");
+    const dataUrl = `${id}?token=${token}`;
 
-    const storedData = localStorage.getItem(`result/${id}?token=${token}`);
+    const storedData = localStorage.getItem("result/"+dataUrl);
     const resultData = storedData ? JSON.parse(storedData) : [];
 
     const accuracy = ((resultData.correct / resultData.total)*100).toFixed(2); 
     const isPassed = resultData.totalScore >= resultData.passing ? true: false;
 
+    console.log(storedData);
     var filler = '0';
     if(resultData.timeUsed%60>=10){
         filler = '';
@@ -41,12 +43,20 @@ function QuizResult(){
                     </ListItem>
                 </List>
 
+                <List className='quiz-summary-quizname'>
+                    <ListItem>
+                        <ListItemText>Total Question</ListItemText>
+                        <ListSubheader>{resultData.correct+resultData.wrong}</ListSubheader>
+                    </ListItem>
+                </List>
+
                 <QuizSummaryPanel 
                     title={resultData.title}
                     correct = {resultData.correct}
                     wrong = {resultData.wrong}
                     score = {resultData.totalScore}
                     timeUsed = {timeUsed}
+                    dataUrl={dataUrl}
                 />
 
                 <AppButton 

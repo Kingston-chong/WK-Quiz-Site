@@ -1,11 +1,14 @@
 .subsection-title-container{
     display: flex;
     flex-direction: row;
+    align-content: center;
+    align-items: center;
 }
 
 .subsection-title-container hr{
     margin: 0px;
     width: 10px;
+    height: 100px;
     border: none;
     background-color: rgba(251, 109, 58, 1);
     border-radius: 10px;
@@ -15,5 +18,10 @@
     font-weight: bold;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: 3%;
+    width: 90%;
     color: rgba(90, 25, 202, 1);
+}
+
+.subsection-title-btn{
+    text-transform:none !important;
 }

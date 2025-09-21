@@ -9,6 +9,7 @@ import QuizMain from './module/quiz/screen/QuizMain';
 import AuthLayout from './module/auth/screen/AuthLayout';
 import Login from './module/auth/screen/Login';
 import Register from './module/auth/screen/Register';
+import QuestionReview from './module/quiz/screen/QuestionReview';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             <Route path='dashboard' element={<Dashboard/>}/>
             <Route path='QuizDetails/:id' element={<QuizDetails/>}/>
             <Route path='Result/:id' element={<QuizResult/>}/>
+            <Route path='QuestionReview/:id' element={<QuestionReview/>}/>
             <Route path='Quiz' element={<QuizMain/>}/>
           </Route>
 

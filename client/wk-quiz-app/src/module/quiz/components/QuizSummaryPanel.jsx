@@ -11,7 +11,7 @@ function QuizSummaryPanel(props){
         <>  
             <div className='quiz-summary-panel-container'>
                 
-                <SubSectionTitle title="Quiz Summary"></SubSectionTitle>
+                <SubSectionTitle title="Quiz Summary" url={`/QuestionReview/${props.dataUrl}`} action="Review"></SubSectionTitle>
                 
                 <List className="quiz-summary-panel">
 
