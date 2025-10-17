@@ -47,7 +47,7 @@ export async function updateQuestion(req,res){
     
     try {
         const newQuestion = await Question.findByIdAndUpdate(id,quesBody,{new:true});
-        res.status(200).json({success:true,message:"Question Updated"})
+        res.status(200).json({success:true,message:"Question Updated",questionData:newQuestion})
     } catch (error) {
         console.log("Server Error");
         res.status(500).json({success:false,message:"Server Error"});

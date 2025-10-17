@@ -4,9 +4,37 @@ import { Link } from "react-router-dom";
 import '../style/Register.css';
 import InfoIcon from '@mui/icons-material/Info';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+import { useState } from "react";
+import axios from "axios";
 
 function Register(){
-    return(
+
+    const [email,setEmail] = useState(null);
+    const [username,setUsername] = useState(null);
+    const [password,setPassword] = useState(null);
+    const [confirmPassword,setConfirmPassword] = useState(null);
+    const apiUrl = import.meta.env.VITE_API_URL;
+
+    const handleRegister = async(e)=>{
+        e.preventDefault();
+        try {
+            const res = await axios.post(
+                apiUrl+"auth/register",
+                {
+                    email:email,
+                    username:username,
+                    password:password
+                }
+            );
+
+            alert("Account Created"); 
+            navigate("../login");
+        } catch (error) {
+            alert("Registration Error");
+        }
+    }
+    
+    return( 
         <>
             <div className="register-container">
 
@@ -15,9 +43,9 @@ function Register(){
                 <hr/>
                 
                 <div className="register-form">
-                    <TextField type="email" placeholder="Email" label="Email"/>
-                    <TextField placeholder="Username" label="Username"/>
-                    <TextField type="password" placeholder="Password" label="Password"/>
+                    <TextField type="email" placeholder="Email" label="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                    <TextField placeholder="Username" label="Username" onChange={(e)=>setUsername(e.target.value)}/>
+                    <TextField type="password" placeholder="Password" label="Password" onChange={(e)=>setPassword(e.target.value)}/>
 
                     <List>
                         <ListItem>

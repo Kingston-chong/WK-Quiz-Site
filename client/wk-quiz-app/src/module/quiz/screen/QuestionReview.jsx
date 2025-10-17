@@ -78,10 +78,7 @@ function QuestionReview(){
     const resultData = storedData ? JSON.parse(storedData) : [];
 
     const [userAction,setuserAction] = useState(resultData.userAction);
-    // useEffect(()=>{
-        
-    // })
-    console.log(userAction)
+
     return(
         <>
             <div className="question-review-container">
@@ -114,16 +111,10 @@ function QuestionReview(){
                             <List>
 
                                 <ListItem>
-                                    <ListItemText>Answer : </ListItemText>
-                                    <ListItemText>{getAlpha(e.ques.correct)}</ListItemText>
+                                    <TextField className="question-review-ans" label="Answer" variant="outlined" value={getAlpha(e.ques.correct)} disabled></TextField>
+                                    <TextField className="question-review-ans" label="You Select" variant="outlined" value={getAlpha(e.select)} disabled></TextField>
                                 </ListItem>
-
-                                <ListItem>
-                                    <ListItemText>You Select : </ListItemText>
-                                    <ListItemText>{getAlpha(e.select)}</ListItemText>
-                                </ListItem>
-
-                            </List>
+                           </List>
                             
                         </List>
                         

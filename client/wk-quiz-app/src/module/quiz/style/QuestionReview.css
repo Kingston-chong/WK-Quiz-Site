@@ -29,3 +29,7 @@
 .question-review-item-title span{
     margin-inline: 3%;
 }
+
+.question-review-ans label{
+    color: rgb(0, 0, 0) !important;
+}
