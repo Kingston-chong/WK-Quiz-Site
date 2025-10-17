@@ -4,6 +4,8 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import QuizRoutes from "./route/quiz.route.js";
 import QuestionRoutes from "./route/question.route.js";
+import UserRoutes from "./route/user.route.js";
+import AuthRoutes from "./route/auth.route.js";
 
 dotenv.config();
 
@@ -21,6 +23,8 @@ connectDB();
 //routes
 app.use("/api/quiz",QuizRoutes);
 app.use("/api/question",QuestionRoutes);
+app.use("/api/user",UserRoutes);
+app.use("/api/auth",AuthRoutes);
 
 //running server
 const port = process.env.PORT || 5000; 
