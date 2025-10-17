@@ -5,9 +5,8 @@ const ProfileSchema = new mongoose.Schema({
         type:Number,
         require:true
     },
-    username:{
+    bio:{
         type:String,
-        require:true
     },
     profilePic:{
         type:String,

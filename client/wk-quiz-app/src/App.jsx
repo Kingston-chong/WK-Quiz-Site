@@ -10,8 +10,11 @@ import AuthLayout from './module/auth/screen/AuthLayout';
 import Login from './module/auth/screen/Login';
 import Register from './module/auth/screen/Register';
 import QuestionReview from './module/quiz/screen/QuestionReview';
+import { useState } from 'react';
 
 function App() {
+
+  const [auth,setAuth] = useState(false);
 
   return (
     <>
@@ -19,7 +22,7 @@ function App() {
         <Routes>
 
           <Route path='/auth' element={<AuthLayout/>}>
-            <Route element={<Login/>} path='login'/>
+            <Route element={<Login setAuth={setAuth}/>} path='login'/>
             <Route element={<Register/>} path='register'/>
           </Route>
 
