@@ -4,3 +4,4 @@ This Web Application provides a platform for accessing learning progress with qu
 
 # Demo
 Demo link (Vercel) : [https://wk-quiz-site.vercel.app]
+My own edit (currently CORS error - use CORS plugin to override) : https://kc-edited-quiz-site.vercel.app/
